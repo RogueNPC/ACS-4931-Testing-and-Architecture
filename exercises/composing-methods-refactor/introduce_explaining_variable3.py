@@ -9,6 +9,7 @@ def is_cooking_correctly(time, temperature, pressure, desired_state):
 
     if desired_state == 'well-done' and cook_state >= WELL_DONE: 
         return True
-    if desired_state == 'medium' and cook_state >= MEDIUM:
+    elif desired_state == 'medium' and cook_state >= MEDIUM:
         return True
-    return False
+    else:
+        return False
