@@ -2,35 +2,36 @@
 # Remove assignment to method parameter.
 
 class Distance:
-    def __init__(self, value, unit):
-        self.unit = unit
-        self.value = value
+    def __init__(self, dis_value, dis_unit):
+        self.dis_unit = dis_unit
+        self.dis_value = dis_value
 
 class Mass:
-    def __init__(self, value, unit):
-        self.value = value
-        self.unit = unit
+    def __init__(self, mass_value, mass_unit):
+        self.mass_value = mass_value
+        self.mass_unit = mass_unit
 
 def calculate_kinetic_energy(mass, distance, time):
-    if distance.unit != 'km':
-        if distance.unit == "ly":  # [ly] stands for light-year (measure of distance in astronomy)
+    if distance.dis_unit != 'km':
+        if distance.dis_unit == "ly":  # [ly] stands for light-year (measure of distance in astronomy)
             # convert from light-year to km unit
-            in_km = distance.value * 9.461e12
+            in_km = distance.dis_value * 9.461e12
             distance = Distance(in_km, "km")
         else:
             print ("unit is Unknown")
             return
-    speed = distance.value/time # [km per sec]
-    if mass.unit != 'kg':
-        if mass.unit == "solar-mass":
+
+    km_per_sec = distance.value/time # [km per sec]
+    if mass.mass_unit != 'kg':
+        if mass.mass_unit == "solar-mass":
             # convert from solar mass to kg
-            value = mass.value * 1.98892e30 # [kg]
-            mass = Mass(value, 'kg')
+            kg = mass.mass_value * 1.98892e30 # [kg]
+            mass = Mass(kg, 'kg')
         else:
             print ("unit is Unknown")
             return
 
-    kinetic_energy = 0.5 * mass.value * speed ** 2
+    kinetic_energy = 0.5 * mass.value * km_per_sec ** 2
     return kinetic_energy
 
 mass = Mass(2, "solar-mass")
