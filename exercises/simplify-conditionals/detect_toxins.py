@@ -19,6 +19,11 @@ def toxic():
             or 'sodium benzoate' in ingredients 
             or 'sodium oxide' in ingredients)
 
+    # toxic_ingredients = ['sodium nitrate', 'sodium benzoate', 'sodium oxide']
+    # for toxin in toxic_ingredients:
+    #     if toxin in ingredients:
+    #         return True
+    # return False
 
 ingredients = ['sodium benzoate']
 if toxic():
