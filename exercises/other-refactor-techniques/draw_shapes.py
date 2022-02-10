@@ -1,42 +1,40 @@
 # by Kami Bigdely
 # Extract superclass.
-class Circle:
+class Shape:
+
+    def display(self):
+        if self.visible:
+            print('drew the', self.name)
+    
+    def hide(self):
+        self.visible = False
+
+    def make_visible(self):
+        self.visible = True
+
+class Circle(Shape):
     
     def __init__(self, x, y, r, visible = True):
+      self.name = 'circle'
       self.center_x = x
       self.center_y = y
       self.r = r
       self.visible = visible
-      
-    def display(self):
-        print('drew the circle.')
-        
-    def set_visible(self,is_visible):
-        self.visible = is_visible
         
     def get_center(self):
         return self.center_x, self.center_y
     
     
-class Rectangle:
+class Rectangle(Shape):
     
     def __init__(self, x, y, width, height, visible = True):
         # left-bottom corner.
+        self.name = 'rectangle'
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.visible = visible
-        
-    def display(self):
-        if self.visible:
-            print('drew the rectable.')
-            
-    def hide(self):
-        self.visible = False
-        
-    def make_visible(self):
-        self.visible = True
         
     def get_center(self):
         return self.x + self.width/2, \
@@ -46,7 +44,7 @@ class Rectangle:
 
 if __name__ == "__main__":
     circle = Circle(0,0,10, False)
-    circle.set_visible(True)
+    circle.make_visible()
     circle.display()
     print('center point',circle.get_center())
 
