@@ -16,7 +16,11 @@ def read_input():
     grade_list = []
     n_student = 5
     for _ in range(0, n_student):
-        grade_list.append(int(input('Enter a number: ')))
+        try:
+            grade = int(input('Enter a number: '))
+        except ValueError:
+            print('This is not a number, try again')
+        grade_list.append(grade)
     return grade_list
 
 def calculate_stat(grade_list):
@@ -38,4 +42,5 @@ def print_stat(mean, sd):
     print('The population standard deviation of grades is: ', round(sd, 3))
     print('****** END ******')
 
-display_grade_stat()
+if __name__ == "__main__":
+    display_grade_stat()
