@@ -15,4 +15,7 @@ def get_age_carbon_14_dating(carbon_14_ratio):
     in the sample conpared to the amount in living
     tissue (unitless).
     """
+    if not carbon_14_ratio > 0:
+        return "Error, your carbon_14_ratio must be greater than 0."
+
     return math.log(carbon_14_ratio) / DECAY_CONSTANT * T_HALF
