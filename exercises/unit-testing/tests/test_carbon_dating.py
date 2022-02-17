@@ -17,7 +17,7 @@ def test_get_age_carbon_14_dating_normal_use_case():
     assert math.isclose(get_age_carbon_14_dating(0.35), expected_output)
 
 def test_get_age_carbon_14_dating_zero_edge_case():
-    assert get_age_carbon_14_dating(0), "Error, your carbon_14_ratio must be greater than 0."
+    assert get_age_carbon_14_dating(0) == "Error, your carbon_14_ratio must be greater than 0."
 
 def test_get_age_carbon_14_dating_negative_edge_case():
-    assert get_age_carbon_14_dating(-0.35), "Error, your carbon_14_ratio must be greater than 0."
+    assert get_age_carbon_14_dating(-0.35) == "Error, your carbon_14_ratio must be greater than 0."
